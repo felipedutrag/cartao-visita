@@ -129,17 +129,19 @@ export default function Home() {
         <ModeToggle />
       </div>
 
-      {/* Container da Capa Superior com Altura Reduzida */}
-      <div className="w-full h-[180px] md:h-[220px] relative overflow-hidden">
+      {/* Container da Capa Superior com Efeito de Neblina Cinematográfica */}
+      <div className="w-full h-[180px] md:h-[220px] relative overflow-hidden bg-zinc-950">
+        {/* Imagem de Fundo com Animação Suave de Neblina */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 hover:scale-105"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fog"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920&auto=format&fit=crop')`
           }}
-        >
-          {/* Sombra gradiente inferior para suavizar a transição */}
-          <div className="w-full h-full bg-gradient-to-b from-black/40 via-transparent to-[hsl(var(--background))]" />
-        </div>
+        />
+
+        {/* Camada Dupla de Neblina Flutuante (Fog Gradient Overlay) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-white/5 to-black/40 backdrop-blur-[1px] pointer-events-none animate-pulse duration-[8000ms]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-[hsl(var(--background))]" />
       </div>
 
       {/* Hero Section / Conteúdo Principal sobreposto à metade da foto */}
@@ -189,21 +191,37 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Lado Direito: Botão Copiar Chave PIX de Luxo */}
-          <div className="flex items-center justify-center">
+          {/* Lado Direito: Botões WhatsApp e Copiar Pix idênticos em tamanho (h-14, px-7) */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {/* Botão WhatsApp Verde VIP */}
+            <a
+              href="https://wa.me/5500000000000?text=Ol%C3%A1%20Felipe!%20Vim%20pelo%20seu%20Cart%C3%A3o%20Inteligente."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="default"
+                className="h-14 px-7 rounded-2xl text-base font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-2.5 shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>WhatsApp</span>
+              </Button>
+            </a>
+
+            {/* Botão Copiar Chave Pix com Borda Fina e Cor Exata do Subtítulo */}
             <Button
               onClick={handleCopyPix}
-              variant="glow"
-              className="h-14 px-8 rounded-2xl text-base font-bold flex items-center gap-3 transition-all duration-300 hover:scale-105 shadow-lg"
+              variant="gold"
+              className="h-14 px-7 rounded-2xl text-base font-bold flex items-center gap-2.5 shadow-lg"
             >
               {copiedPix ? (
                 <>
                   <Check className="w-5 h-5 text-emerald-400 animate-in zoom-in duration-300" />
-                  <span>Chave Pix Copiada!</span>
+                  <span>Pix Copiado!</span>
                 </>
               ) : (
                 <>
-                  <QrCode className="w-5 h-5" />
+                  <QrCode className="w-5 h-5 text-[hsl(var(--primary))]" />
                   <span>Copiar Chave Pix</span>
                 </>
               )}
@@ -264,7 +282,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SEÇÃO MINI-LOJA / VITRINE EM CARROSSEL FLUIDO (TITULO ATUALIZADO: Serviços em Destaque) */}
+        {/* SEÇÃO MINI-LOJA / VITRINE EM CARROSSEL FLUIDO */}
         <section className="w-full space-y-6">
           <div className="flex items-center justify-between border-b border-[hsl(var(--border))] pb-4">
             <div>

@@ -4,7 +4,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline' | 'ghost' | 'glow'
+  variant?: 'default' | 'outline' | 'ghost' | 'glow' | 'gold'
   size?: 'default' | 'sm' | 'lg' | 'icon'
 }
 
@@ -21,6 +21,7 @@ export function Button({
     outline: 'border border-[hsl(var(--border))] bg-transparent hover:bg-[hsl(var(--secondary))] hover:text-[hsl(var(--secondary-foreground))]',
     ghost: 'hover:bg-[hsl(var(--secondary))] hover:text-[hsl(var(--secondary-foreground))]',
     glow: 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] glow-effect hover:scale-[1.02]',
+    gold: 'border border-[hsl(var(--primary)/0.6)] bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 text-[hsl(var(--primary))] hover:border-[hsl(var(--primary))] hover:shadow-[0_0_20px_-5px_hsl(var(--primary)/0.4)] hover:scale-[1.02]',
   }
 
   const sizes = {
