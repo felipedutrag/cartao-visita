@@ -143,14 +143,14 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-[hsl(var(--background))]" />
       </div>
 
-      {/* Hero Section com Paddings Laterais Suavizados */}
-      <header className="w-full relative z-10 -mt-16 md:-mt-20 px-4 md:px-10 lg:px-16 border-b border-[hsl(var(--border))] pb-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between gap-8">
+      {/* Hero Section com Spacing Otimizado */}
+      <header className="w-full relative z-10 -mt-16 md:-mt-20 px-4 md:px-10 lg:px-16 border-b border-[hsl(var(--border))] pb-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between gap-3 md:gap-6">
           
-          {/* Lado Esquerdo: Foto com tratamento visual cinematográfico */}
-          <div className="flex flex-col md:flex-row items-center md:items-end gap-6 text-center md:text-left">
+          {/* Lado Esquerdo: Foto + Informações com Títulos Reduzidos */}
+          <div className="flex flex-col md:flex-row items-center md:items-end gap-5 text-center md:text-left">
             <div className="relative group">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[hsl(var(--background))] shadow-[0_0_50px_-10px_hsl(var(--primary)/0.5)] overflow-hidden bg-zinc-950 relative">
+              <div className="w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-[hsl(var(--background))] shadow-[0_0_50px_-10px_hsl(var(--primary)/0.5)] overflow-hidden bg-zinc-950 relative">
                 <img
                   src="/felipe.jpg"
                   alt="Felipe Dutra"
@@ -161,37 +161,37 @@ export default function Home() {
               <span className="absolute bottom-2 right-2 w-5 h-5 bg-emerald-500 border-4 border-[hsl(var(--background))] rounded-full z-20" title="Online Agora" />
             </div>
 
-            <div className="space-y-2 pb-2">
-              <div className="inline-flex items-center px-3.5 py-1 rounded-full border border-[hsl(var(--primary)/0.3)] bg-[hsl(var(--primary)/0.08)] text-xs font-semibold text-[hsl(var(--primary))] backdrop-blur-md">
+            <div className="space-y-1.5 pb-1">
+              <div className="inline-flex items-center px-3.5 py-0.5 rounded-full border border-[hsl(var(--primary)/0.3)] bg-[hsl(var(--primary)/0.08)] text-xs font-semibold text-[hsl(var(--primary))] backdrop-blur-md">
                 Cartão Inteligente VIP
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-black tracking-tight text-[hsl(var(--foreground))]">
+              <h1 className="text-3xl md:text-5xl font-black tracking-tight text-[hsl(var(--foreground))]">
                 Felipe Dutra
               </h1>
               
-              <p className="text-lg md:text-xl font-semibold text-[hsl(var(--primary))]">
+              <p className="text-base md:text-lg font-semibold text-[hsl(var(--primary))]">
                 Arquiteto de Software & Fundador
               </p>
               
-              <p className="text-sm md:text-base text-[hsl(var(--muted-foreground))] max-w-2xl leading-relaxed">
+              <p className="text-xs md:text-sm text-[hsl(var(--muted-foreground))] max-w-2xl leading-relaxed">
                 Especialista em Inteligência Artificial, Sistemas Escaláveis de Alta Performance e Experiências Digitais Luxuosas.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-6 pt-2 text-xs md:text-sm text-[hsl(var(--muted-foreground))]">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 pt-1 text-xs text-[hsl(var(--muted-foreground))]">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <MapPin className="w-4 h-4 text-[hsl(var(--primary))]" /> São Paulo, Brasil
+                  <MapPin className="w-3.5 h-3.5 text-[hsl(var(--primary))]" /> São Paulo, Brasil
                 </span>
                 <span className="hidden md:inline">•</span>
                 <span className="flex items-center gap-1.5 font-medium">
-                  <Mail className="w-4 h-4 text-[hsl(var(--primary))]" /> contato@felipe.com
+                  <Mail className="w-3.5 h-3.5 text-[hsl(var(--primary))]" /> contato@felipe.com
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Lado Direito: Botões WhatsApp e Copiar Pix Otimizados para Celular */}
-          <div className="flex items-center justify-center gap-2.5 w-full md:w-auto">
+          {/* Lado Direito: Botões WhatsApp e Copiar Pix Colados sem Espaço Vazio Acima (mt-0) */}
+          <div className="flex items-center justify-center gap-2.5 w-full md:w-auto mt-0">
             {/* Botão WhatsApp Verde VIP */}
             <a
               href="https://wa.me/5500000000000?text=Ol%C3%A1%20Felipe!%20Vim%20pelo%20seu%20Cart%C3%A3o%20Inteligente."
@@ -201,18 +201,18 @@ export default function Home() {
             >
               <Button
                 variant="default"
-                className="w-full h-12 md:h-14 px-4 md:px-6 rounded-2xl text-xs md:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-1.5 shadow-lg transition-transform duration-300 hover:scale-105 whitespace-nowrap"
+                className="w-full h-12 md:h-13 px-4 md:px-6 rounded-2xl text-xs md:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-1.5 shadow-lg transition-transform duration-300 hover:scale-105 whitespace-nowrap"
               >
                 <MessageCircle className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                 <span>WhatsApp</span>
               </Button>
             </a>
 
-            {/* Botão Copiar Chave Pix (Troca de Tema Instantânea) */}
+            {/* Botão Copiar Chave Pix */}
             <Button
               onClick={handleCopyPix}
               variant="gold"
-              className="flex-1 md:flex-none h-12 md:h-14 px-4 md:px-6 rounded-2xl text-xs md:text-sm font-bold flex items-center justify-center shadow-md whitespace-nowrap"
+              className="flex-1 md:flex-none h-12 md:h-13 px-4 md:px-6 rounded-2xl text-xs md:text-sm font-bold flex items-center justify-center shadow-md whitespace-nowrap"
             >
               {copiedPix ? (
                 <span className="text-emerald-500 flex items-center gap-1">
@@ -228,16 +228,16 @@ export default function Home() {
       </header>
 
       {/* Seção Principal com Paddings Laterais Reduzidos */}
-      <main className="w-full max-w-7xl mx-auto px-4 md:px-10 lg:px-16 py-10 space-y-14 z-10 flex-grow">
+      <main className="w-full max-w-7xl mx-auto px-4 md:px-10 lg:px-16 py-10 space-y-12 z-10 flex-grow">
         
         {/* Bloco Destaque: IA de Voz Fluida em Largura Total */}
         <section className="w-full">
           <AiVoiceAssistantCard />
         </section>
 
-        {/* Seção de Links & Redes Sociais Full-Width */}
+        {/* 1. SEÇÃO CANAIS DE COMUNICAÇÃO */}
         <section className="w-full space-y-4">
-          <h2 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))]">
+          <h2 className="text-xl md:text-2xl font-black tracking-tight text-[hsl(var(--foreground))]">
             Canais de Comunicação & Redes
           </h2>
 
@@ -251,18 +251,18 @@ export default function Home() {
                 className="group block"
               >
                 <div
-                  className={`p-6 rounded-2xl border flex items-center justify-between group-hover:scale-[1.01] group-hover:border-[hsl(var(--primary))] shadow-sm ${
+                  className={`p-5 rounded-2xl border flex items-center justify-between group-hover:scale-[1.01] group-hover:border-[hsl(var(--primary))] shadow-sm ${
                     link.highlight
                       ? 'border-[hsl(var(--primary)/0.4)] bg-[hsl(var(--card))]'
                       : 'border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:bg-[hsl(var(--background))]'
                   }`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-[hsl(var(--background))] border border-[hsl(var(--border))] group-hover:bg-[hsl(var(--primary)/0.1)] transition-colors">
+                    <div className="p-2.5 rounded-xl bg-[hsl(var(--background))] border border-[hsl(var(--border))] group-hover:bg-[hsl(var(--primary)/0.1)] transition-colors">
                       {link.icon}
                     </div>
                     <div>
-                      <h3 className="font-bold text-base text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))]">
+                      <h3 className="font-bold text-sm md:text-base text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))]">
                         {link.title}
                       </h3>
                       <p className="text-xs text-[hsl(var(--muted-foreground))]">
@@ -271,21 +271,21 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <ExternalLink className="w-5 h-5 text-[hsl(var(--muted-foreground))] group-hover:text-[hsl(var(--primary))]" />
+                  <ExternalLink className="w-4 h-4 md:w-5 md:h-5 text-[hsl(var(--muted-foreground))] group-hover:text-[hsl(var(--primary))]" />
                 </div>
               </a>
             ))}
           </div>
         </section>
 
-        {/* SEÇÃO MINI-LOJA / VITRINE EM CARROSSEL FLUIDO */}
-        <section className="w-full space-y-6">
-          <div className="flex items-center justify-between border-b border-[hsl(var(--border))] pb-4">
+        {/* 2. SEÇÃO SERVIÇOS EM DESTAQUE */}
+        <section className="w-full space-y-5">
+          <div className="flex items-center justify-between border-b border-[hsl(var(--border))] pb-3">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--primary))] mb-1">
-                <ShoppingBag className="w-4 h-4" /> Soluções Exclusivas
+                <ShoppingBag className="w-3.5 h-3.5" /> Soluções Exclusivas
               </div>
-              <h2 className="text-3xl font-black tracking-tight text-[hsl(var(--foreground))]">
+              <h2 className="text-xl md:text-2xl font-black tracking-tight text-[hsl(var(--foreground))]">
                 Serviços em Destaque
               </h2>
             </div>
@@ -296,19 +296,19 @@ export default function Home() {
                 variant="outline"
                 size="icon"
                 onClick={() => scrollCarousel('left')}
-                className="h-10 w-10 rounded-full border-[hsl(var(--border))] hover:border-[hsl(var(--primary))]"
+                className="h-9 w-9 rounded-full border-[hsl(var(--border))] hover:border-[hsl(var(--primary))]"
                 title="Anterior"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-4 h-4" />
               </Button>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={() => scrollCarousel('right')}
-                className="h-10 w-10 rounded-full border-[hsl(var(--border))] hover:border-[hsl(var(--primary))]"
+                className="h-9 w-9 rounded-full border-[hsl(var(--border))] hover:border-[hsl(var(--primary))]"
                 title="Próximo"
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
           </div>
@@ -316,33 +316,33 @@ export default function Home() {
           {/* Container do Carrossel com Scroll Horizontal Suave */}
           <div
             ref={carouselRef}
-            className="flex items-stretch gap-6 overflow-x-auto scrollbar-none pb-4 snap-x snap-mandatory"
+            className="flex items-stretch gap-5 overflow-x-auto scrollbar-none pb-3 snap-x snap-mandatory"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {storeProducts.map((prod, idx) => (
               <div
                 key={idx}
-                className="min-w-[300px] md:min-w-[360px] max-w-[360px] snap-start group relative overflow-hidden rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm hover:scale-[1.02] hover:border-[hsl(var(--primary)/0.6)] flex flex-col justify-between shrink-0"
+                className="min-w-[280px] md:min-w-[340px] max-w-[340px] snap-start group relative overflow-hidden rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm hover:scale-[1.02] hover:border-[hsl(var(--primary)/0.6)] flex flex-col justify-between shrink-0"
               >
                 <div>
                   {/* Banner do Produto */}
-                  <div className="w-full h-48 relative overflow-hidden bg-zinc-900">
+                  <div className="w-full h-44 relative overflow-hidden bg-zinc-900">
                     <img
                       src={prod.image}
                       alt={prod.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold bg-black/60 backdrop-blur-md text-[hsl(var(--primary))] border border-[hsl(var(--primary)/0.3)]">
+                    <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-xs font-bold bg-black/60 backdrop-blur-md text-[hsl(var(--primary))] border border-[hsl(var(--primary)/0.3)]">
                       {prod.badge}
                     </span>
                   </div>
 
                   {/* Informações do Produto */}
-                  <div className="p-6 space-y-3">
-                    <h3 className="font-bold text-lg text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))]">
+                  <div className="p-5 space-y-2">
+                    <h3 className="font-bold text-base text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))]">
                       {prod.title}
                     </h3>
-                    <p className="text-2xl font-black text-[hsl(var(--primary))]">
+                    <p className="text-xl font-black text-[hsl(var(--primary))]">
                       {prod.price}
                     </p>
                     <p className="text-xs text-[hsl(var(--muted-foreground))] leading-relaxed">
@@ -352,14 +352,14 @@ export default function Home() {
                 </div>
 
                 {/* Botão de Compra Direta por Pix + WhatsApp */}
-                <div className="p-6 pt-0">
+                <div className="p-5 pt-0">
                   <Button
                     onClick={() => handleBuyProduct(idx, prod.title, prod.price)}
-                    className="w-full h-12 rounded-xl text-sm font-bold flex items-center justify-center gap-2 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:opacity-90 shadow-md"
+                    className="w-full h-11 rounded-xl text-xs font-bold flex items-center justify-center gap-2 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:opacity-90 shadow-md"
                   >
                     {copiedProductPix === idx ? (
                       <span className="text-emerald-400 flex items-center gap-1">
-                        <Check className="w-4 h-4" /> Pix Copiado! Abrindo WhatsApp...
+                        <Check className="w-3.5 h-3.5" /> Pix Copiado! Abrindo WhatsApp...
                       </span>
                     ) : (
                       <span>Comprar via Pix</span>
@@ -371,54 +371,54 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Bloco Onde Nos Encontrar com Layout Full-Width Expandido */}
-        <section className="w-full p-8 rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] backdrop-blur-md space-y-6 shadow-sm">
+        {/* 3. SEÇÃO ONDE NOS ENCONTRAR */}
+        <section className="w-full p-6 md:p-8 rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] backdrop-blur-md space-y-5 shadow-sm">
           
           {/* Header Atualizado: Onde nos encontrar */}
           <div className="space-y-1">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--primary))]">
-              <Compass className="w-4 h-4" /> Atendimento Presencial
+              <Compass className="w-3.5 h-3.5" /> Atendimento Presencial
             </div>
-            <h3 className="text-2xl font-black tracking-tight text-[hsl(var(--foreground))]">
+            <h2 className="text-xl md:text-2xl font-black tracking-tight text-[hsl(var(--foreground))]">
               Onde nos encontrar
-            </h3>
+            </h2>
           </div>
 
           {/* Cards Informativos de Endereço e Detalhes Limpos e Claros */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.5)]">
-              <div className="p-3 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
-                <Navigation className="w-5 h-5 text-[hsl(var(--primary))]" />
+            <div className="p-4 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-3.5 shadow-sm hover:border-[hsl(var(--primary)/0.5)]">
+              <div className="p-2.5 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
+                <Navigation className="w-4 h-4 text-[hsl(var(--primary))]" />
               </div>
               <div>
-                <p className="text-xs text-[hsl(var(--muted-foreground))] font-medium uppercase tracking-wider">Endereço Principal</p>
-                <p className="font-bold text-sm text-[hsl(var(--foreground))]">Av. Paulista, 1000 — Bela Vista</p>
+                <p className="text-[11px] text-[hsl(var(--muted-foreground))] font-medium uppercase tracking-wider">Endereço Principal</p>
+                <p className="font-bold text-xs md:text-sm text-[hsl(var(--foreground))]">Av. Paulista, 1000 — Bela Vista</p>
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.5)]">
-              <div className="p-3 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
-                <Building2 className="w-5 h-5 text-[hsl(var(--primary))]" />
+            <div className="p-4 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-3.5 shadow-sm hover:border-[hsl(var(--primary)/0.5)]">
+              <div className="p-2.5 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
+                <Building2 className="w-4 h-4 text-[hsl(var(--primary))]" />
               </div>
               <div>
-                <p className="text-xs text-[hsl(var(--muted-foreground))] font-medium uppercase tracking-wider">Edifício & Conjunto</p>
-                <p className="font-bold text-sm text-[hsl(var(--foreground))]">Ed. Rochaverá • Conjunto 1402</p>
+                <p className="text-[11px] text-[hsl(var(--muted-foreground))] font-medium uppercase tracking-wider">Edifício & Conjunto</p>
+                <p className="font-bold text-xs md:text-sm text-[hsl(var(--foreground))]">Ed. Rochaverá • Conjunto 1402</p>
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.1)]">
-              <div className="p-3 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
-                <Clock className="w-5 h-5 text-[hsl(var(--primary))]" />
+            <div className="p-4 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-3.5 shadow-sm hover:border-[hsl(var(--primary)/0.1)]">
+              <div className="p-2.5 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
+                <Clock className="w-4 h-4 text-[hsl(var(--primary))]" />
               </div>
               <div>
-                <p className="text-xs text-[hsl(var(--muted-foreground))] font-medium uppercase tracking-wider">Cidade & Horário</p>
-                <p className="font-bold text-sm text-[hsl(var(--foreground))]">São Paulo - SP • Seg à Sex 09h-18h</p>
+                <p className="text-[11px] text-[hsl(var(--muted-foreground))] font-medium uppercase tracking-wider">Cidade & Horário</p>
+                <p className="font-bold text-xs md:text-sm text-[hsl(var(--foreground))]">São Paulo - SP • Seg à Sex 09h-18h</p>
               </div>
             </div>
           </div>
 
           {/* Iframe do Google Maps Interativo */}
-          <div className="w-full h-80 md:h-96 rounded-2xl border border-[hsl(var(--border))] overflow-hidden shadow-xl relative bg-[hsl(var(--card))]">
+          <div className="w-full h-72 md:h-88 rounded-2xl border border-[hsl(var(--border))] overflow-hidden shadow-xl relative bg-[hsl(var(--card))]">
             <iframe
               src={mapEmbedUrl}
               width="100%"
@@ -440,9 +440,9 @@ export default function Home() {
           >
             <Button
               variant="outline"
-              className="w-full h-14 text-base font-bold border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)/0.08)] flex items-center justify-center gap-2"
+              className="w-full h-12 text-sm font-bold border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)/0.08)] flex items-center justify-center gap-2"
             >
-              <ExternalLink className="w-5 h-5 text-[hsl(var(--primary))]" /> Abrir no Google Maps
+              <ExternalLink className="w-4 h-4 text-[hsl(var(--primary))]" /> Abrir no Google Maps
             </Button>
           </a>
         </section>
