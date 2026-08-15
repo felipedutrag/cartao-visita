@@ -94,14 +94,14 @@ export default function Home() {
       <header className="w-full relative z-10 -mt-16 md:-mt-20 px-6 md:px-16 lg:px-24 border-b border-[hsl(var(--border))] pb-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between gap-8">
           
-          {/* Lado Esquerdo: Foto sobrepondo a capa até a metade + Infos */}
+          {/* Lado Esquerdo: Foto real de Felipe Dutra sobrepondo a capa até a metade + Infos */}
           <div className="flex flex-col md:flex-row items-center md:items-end gap-6 text-center md:text-left">
             <div className="relative">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[hsl(var(--background))] shadow-[0_0_50px_-10px_hsl(var(--primary)/0.4)] overflow-hidden bg-[hsl(var(--card))] relative">
                 <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop"
-                  alt="Foto de Perfil"
-                  className="w-full h-full object-cover object-center"
+                  src="/felipe.jpg"
+                  alt="Felipe Dutra"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <span className="absolute bottom-2 right-2 w-5 h-5 bg-emerald-500 border-4 border-[hsl(var(--background))] rounded-full" title="Online Agora" />
@@ -246,7 +246,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.5)] transition-all">
+            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.1)] transition-all">
               <div className="p-3 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
                 <Clock className="w-5 h-5 text-[hsl(var(--primary))]" />
               </div>
