@@ -43,7 +43,7 @@ export default function Home() {
     setCopiedProductPix(index)
     setTimeout(() => setCopiedProductPix(null), 3000)
     
-    const message = encodeURIComponent(`Olá Felipe! Fiz o Pix para adquirir o produto: ${productName} (${price}). Segue o comprovante:`)
+    const message = encodeURIComponent(`Olá Felipe! Fiz o Pix para adquirir o serviço: ${productName} (${price}). Segue o comprovante:`)
     window.open(`https://wa.me/5500000000000?text=${message}`, '_blank')
   }
 
@@ -264,7 +264,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SEÇÃO MINI-LOJA / VITRINE EM CARROSSEL FLUIDO (ABAIXO DAS REDES SOCIAIS) */}
+        {/* SEÇÃO MINI-LOJA / VITRINE EM CARROSSEL FLUIDO (TITULO ATUALIZADO: Serviços em Destaque) */}
         <section className="w-full space-y-6">
           <div className="flex items-center justify-between border-b border-[hsl(var(--border))] pb-4">
             <div>
@@ -272,7 +272,7 @@ export default function Home() {
                 <ShoppingBag className="w-4 h-4" /> Soluções Exclusivas
               </div>
               <h2 className="text-3xl font-black tracking-tight text-[hsl(var(--foreground))]">
-                Produtos & Serviços em Destaque
+                Serviços em Destaque
               </h2>
             </div>
 
