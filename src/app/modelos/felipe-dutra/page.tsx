@@ -15,7 +15,6 @@ import {
   Navigation,
   Clock,
   Compass,
-  QrCode,
   Check,
   ShoppingBag,
   ChevronLeft,
@@ -122,10 +121,10 @@ export default function Home() {
   const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.097615234907!2d-46.65406082377227!3d-23.563124461748293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2d97107!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr`
 
   return (
-    <div className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] transition-colors duration-500 flex flex-col justify-between relative overflow-hidden">
+    <div className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] flex flex-col justify-between relative overflow-hidden">
       
       {/* Botão de Tema Flutuante Fixo no Canto Superior Direito */}
-      <div className="fixed top-6 right-6 z-50">
+      <div className="fixed top-5 right-5 z-50">
         <ModeToggle />
       </div>
 
@@ -144,8 +143,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-[hsl(var(--background))]" />
       </div>
 
-      {/* Hero Section / Conteúdo Principal sobreposto à metade da foto */}
-      <header className="w-full relative z-10 -mt-16 md:-mt-20 px-6 md:px-16 lg:px-24 border-b border-[hsl(var(--border))] pb-12">
+      {/* Hero Section com Paddings Laterais Suavizados */}
+      <header className="w-full relative z-10 -mt-16 md:-mt-20 px-4 md:px-10 lg:px-16 border-b border-[hsl(var(--border))] pb-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between gap-8">
           
           {/* Lado Esquerdo: Foto com tratamento visual cinematográfico */}
@@ -155,7 +154,7 @@ export default function Home() {
                 <img
                   src="/felipe.jpg"
                   alt="Felipe Dutra"
-                  className="w-full h-full object-cover object-top contrast-[1.12] brightness-[0.92] saturate-[0.85] transition-all duration-500 group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100 group-hover:saturate-100"
+                  className="w-full h-full object-cover object-top contrast-[1.12] brightness-[0.92] saturate-[0.85] transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-radial-vignette pointer-events-none ring-1 ring-inset ring-black/20" />
               </div>
@@ -191,39 +190,36 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Lado Direito: Botões WhatsApp e Copiar Pix idênticos em tamanho (h-14, px-7) */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          {/* Lado Direito: Botões WhatsApp e Copiar Pix Otimizados para Celular */}
+          <div className="flex items-center justify-center gap-2.5 w-full md:w-auto">
             {/* Botão WhatsApp Verde VIP */}
             <a
               href="https://wa.me/5500000000000?text=Ol%C3%A1%20Felipe!%20Vim%20pelo%20seu%20Cart%C3%A3o%20Inteligente."
               target="_blank"
               rel="noopener noreferrer"
+              className="flex-1 md:flex-none"
             >
               <Button
                 variant="default"
-                className="h-14 px-7 rounded-2xl text-base font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-2.5 shadow-lg transition-all duration-300 hover:scale-105"
+                className="w-full h-12 md:h-14 px-4 md:px-6 rounded-2xl text-xs md:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-1.5 shadow-lg transition-transform duration-300 hover:scale-105 whitespace-nowrap"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                 <span>WhatsApp</span>
               </Button>
             </a>
 
-            {/* Botão Copiar Chave Pix com Borda Fina e Cor Exata do Subtítulo */}
+            {/* Botão Copiar Chave Pix (Troca de Tema Instantânea) */}
             <Button
               onClick={handleCopyPix}
               variant="gold"
-              className="h-14 px-7 rounded-2xl text-base font-bold flex items-center gap-2.5 shadow-lg"
+              className="flex-1 md:flex-none h-12 md:h-14 px-4 md:px-6 rounded-2xl text-xs md:text-sm font-bold flex items-center justify-center shadow-md whitespace-nowrap"
             >
               {copiedPix ? (
-                <>
-                  <Check className="w-5 h-5 text-emerald-400 animate-in zoom-in duration-300" />
-                  <span>Pix Copiado!</span>
-                </>
+                <span className="text-emerald-500 flex items-center gap-1">
+                  <Check className="w-4 h-4 shrink-0" /> Pix Copiado!
+                </span>
               ) : (
-                <>
-                  <QrCode className="w-5 h-5 text-[hsl(var(--primary))]" />
-                  <span>Copiar Chave Pix</span>
-                </>
+                <span>Copiar Chave Pix</span>
               )}
             </Button>
           </div>
@@ -231,8 +227,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Seção Principal: Grid Full-Width */}
-      <main className="w-full max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-12 space-y-16 z-10 flex-grow">
+      {/* Seção Principal com Paddings Laterais Reduzidos */}
+      <main className="w-full max-w-7xl mx-auto px-4 md:px-10 lg:px-16 py-10 space-y-14 z-10 flex-grow">
         
         {/* Bloco Destaque: IA de Voz Fluida em Largura Total */}
         <section className="w-full">
@@ -255,7 +251,7 @@ export default function Home() {
                 className="group block"
               >
                 <div
-                  className={`p-6 rounded-2xl border transition-all duration-300 flex items-center justify-between group-hover:scale-[1.01] group-hover:border-[hsl(var(--primary))] shadow-sm ${
+                  className={`p-6 rounded-2xl border flex items-center justify-between group-hover:scale-[1.01] group-hover:border-[hsl(var(--primary))] shadow-sm ${
                     link.highlight
                       ? 'border-[hsl(var(--primary)/0.4)] bg-[hsl(var(--card))]'
                       : 'border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:bg-[hsl(var(--background))]'
@@ -266,7 +262,7 @@ export default function Home() {
                       {link.icon}
                     </div>
                     <div>
-                      <h3 className="font-bold text-base text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))] transition-colors">
+                      <h3 className="font-bold text-base text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))]">
                         {link.title}
                       </h3>
                       <p className="text-xs text-[hsl(var(--muted-foreground))]">
@@ -275,7 +271,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <ExternalLink className="w-5 h-5 text-[hsl(var(--muted-foreground))] group-hover:text-[hsl(var(--primary))] transition-colors" />
+                  <ExternalLink className="w-5 h-5 text-[hsl(var(--muted-foreground))] group-hover:text-[hsl(var(--primary))]" />
                 </div>
               </a>
             ))}
@@ -326,7 +322,7 @@ export default function Home() {
             {storeProducts.map((prod, idx) => (
               <div
                 key={idx}
-                className="min-w-[300px] md:min-w-[360px] max-w-[360px] snap-start group relative overflow-hidden rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm transition-all duration-500 hover:scale-[1.02] hover:border-[hsl(var(--primary)/0.6)] flex flex-col justify-between shrink-0"
+                className="min-w-[300px] md:min-w-[360px] max-w-[360px] snap-start group relative overflow-hidden rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm hover:scale-[1.02] hover:border-[hsl(var(--primary)/0.6)] flex flex-col justify-between shrink-0"
               >
                 <div>
                   {/* Banner do Produto */}
@@ -343,7 +339,7 @@ export default function Home() {
 
                   {/* Informações do Produto */}
                   <div className="p-6 space-y-3">
-                    <h3 className="font-bold text-lg text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))] transition-colors">
+                    <h3 className="font-bold text-lg text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))]">
                       {prod.title}
                     </h3>
                     <p className="text-2xl font-black text-[hsl(var(--primary))]">
@@ -359,18 +355,14 @@ export default function Home() {
                 <div className="p-6 pt-0">
                   <Button
                     onClick={() => handleBuyProduct(idx, prod.title, prod.price)}
-                    className="w-full h-12 rounded-xl text-sm font-bold flex items-center justify-center gap-2 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:opacity-90 transition-all shadow-md"
+                    className="w-full h-12 rounded-xl text-sm font-bold flex items-center justify-center gap-2 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:opacity-90 shadow-md"
                   >
                     {copiedProductPix === idx ? (
-                      <>
-                        <Check className="w-4 h-4 text-emerald-400" />
-                        <span>Pix Copiado! Abrindo WhatsApp...</span>
-                      </>
+                      <span className="text-emerald-400 flex items-center gap-1">
+                        <Check className="w-4 h-4" /> Pix Copiado! Abrindo WhatsApp...
+                      </span>
                     ) : (
-                      <>
-                        <QrCode className="w-4 h-4" />
-                        <span>Comprar via Pix</span>
-                      </>
+                      <span>Comprar via Pix</span>
                     )}
                   </Button>
                 </div>
@@ -394,7 +386,7 @@ export default function Home() {
 
           {/* Cards Informativos de Endereço e Detalhes Limpos e Claros */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.5)] transition-all">
+            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.5)]">
               <div className="p-3 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
                 <Navigation className="w-5 h-5 text-[hsl(var(--primary))]" />
               </div>
@@ -404,7 +396,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.5)] transition-all">
+            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.5)]">
               <div className="p-3 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
                 <Building2 className="w-5 h-5 text-[hsl(var(--primary))]" />
               </div>
@@ -414,7 +406,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.1)] transition-all">
+            <div className="p-5 rounded-2xl bg-[hsl(var(--card))] border border-[hsl(var(--border))] flex items-center gap-4 shadow-sm hover:border-[hsl(var(--primary)/0.1)]">
               <div className="p-3 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)]">
                 <Clock className="w-5 h-5 text-[hsl(var(--primary))]" />
               </div>
@@ -448,7 +440,7 @@ export default function Home() {
           >
             <Button
               variant="outline"
-              className="w-full h-14 text-base font-bold border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)/0.08)] transition-all flex items-center justify-center gap-2"
+              className="w-full h-14 text-base font-bold border-[hsl(var(--border))] hover:border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)/0.08)] flex items-center justify-center gap-2"
             >
               <ExternalLink className="w-5 h-5 text-[hsl(var(--primary))]" /> Abrir no Google Maps
             </Button>
@@ -466,7 +458,7 @@ export default function Home() {
             href="https://wa.me/5500000000000?text=Quero%20ter%20meu%20Cart%C3%A3o%20Inteligente%20VIP%20com%20IA"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[hsl(var(--primary))] font-semibold hover:underline transition-all"
+            className="text-[hsl(var(--primary))] font-semibold hover:underline"
           >
             Crie seu Cartão com IA de Voz aqui ⚡
           </a>

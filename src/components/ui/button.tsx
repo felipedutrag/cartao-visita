@@ -14,14 +14,14 @@ export function Button({
   size = 'default',
   ...props
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95'
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors transition-border transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95'
   
   const variants = {
     default: 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:opacity-90 shadow-md',
     outline: 'border border-[hsl(var(--border))] bg-transparent hover:bg-[hsl(var(--secondary))] hover:text-[hsl(var(--secondary-foreground))]',
     ghost: 'hover:bg-[hsl(var(--secondary))] hover:text-[hsl(var(--secondary-foreground))]',
     glow: 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] glow-effect hover:scale-[1.02]',
-    gold: 'border border-[hsl(var(--primary)/0.6)] bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 text-[hsl(var(--primary))] hover:border-[hsl(var(--primary))] hover:shadow-[0_0_20px_-5px_hsl(var(--primary)/0.4)] hover:scale-[1.02]',
+    gold: 'border border-[hsl(var(--primary)/0.4)] bg-[hsl(var(--card))] text-[hsl(var(--primary))] hover:border-[hsl(var(--primary))] hover:shadow-[0_0_20px_-5px_hsl(var(--primary)/0.3)] hover:scale-[1.02]',
   }
 
   const sizes = {
