@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Image from 'next/image'
 import {
   MessageCircle,
@@ -8,7 +8,6 @@ import {
   MapPin,
   Mail,
   ExternalLink,
-  Sparkles,
   Share,
   Code,
   Camera,
@@ -17,7 +16,10 @@ import {
   Clock,
   Compass,
   QrCode,
-  Check
+  Check,
+  ShoppingBag,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AiVoiceAssistantCard } from '@/components/ai-voice-assistant-card'
@@ -25,6 +27,8 @@ import { ModeToggle } from '@/components/mode-toggle'
 
 export default function Home() {
   const [copiedPix, setCopiedPix] = useState(false)
+  const [copiedProductPix, setCopiedProductPix] = useState<number | null>(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   const handleCopyPix = () => {
     const pixKey = '407.501.898-94'
@@ -32,6 +36,54 @@ export default function Home() {
     setCopiedPix(true)
     setTimeout(() => setCopiedPix(false), 3000)
   }
+
+  const handleBuyProduct = (index: number, productName: string, price: string) => {
+    const pixKey = '407.501.898-94'
+    navigator.clipboard.writeText(pixKey)
+    setCopiedProductPix(index)
+    setTimeout(() => setCopiedProductPix(null), 3000)
+    
+    const message = encodeURIComponent(`Olá Felipe! Fiz o Pix para adquirir o produto: ${productName} (${price}). Segue o comprovante:`)
+    window.open(`https://wa.me/5500000000000?text=${message}`, '_blank')
+  }
+
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === 'left' ? -350 : 350
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    }
+  }
+
+  const storeProducts = [
+    {
+      title: 'Consultoria Estratégica de IA',
+      price: 'R$ 497,00',
+      description: 'Sessão individual de 1 hora para implementar automação e IA de voz no seu negócio.',
+      badge: 'Mais Vendido',
+      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop',
+    },
+    {
+      title: 'Cartão VIP com IA Personalizado',
+      price: 'R$ 297,00',
+      description: 'Desenvolvimento do seu cartão de visitas inteligente com assistente de voz exclusivo.',
+      badge: 'Lançamento',
+      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop',
+    },
+    {
+      title: 'Masterclass Automação 24h',
+      price: 'R$ 97,00',
+      description: 'Treinamento completo para transformar seu WhatsApp e redes sociais em máquinas de vendas.',
+      badge: 'Curso',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop',
+    },
+    {
+      title: 'Pacote Tráfego & Funil VIP',
+      price: 'R$ 897,00',
+      description: 'Setup completo de anúncios e direcionamento direto para seu atendimento de IA.',
+      badge: 'Escala',
+      image: 'https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=600&auto=format&fit=crop',
+    },
+  ]
 
   const socialLinks = [
     {
@@ -94,22 +146,23 @@ export default function Home() {
       <header className="w-full relative z-10 -mt-16 md:-mt-20 px-6 md:px-16 lg:px-24 border-b border-[hsl(var(--border))] pb-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between gap-8">
           
-          {/* Lado Esquerdo: Foto real de Felipe Dutra sobrepondo a capa até a metade + Infos */}
+          {/* Lado Esquerdo: Foto com tratamento visual cinematográfico */}
           <div className="flex flex-col md:flex-row items-center md:items-end gap-6 text-center md:text-left">
-            <div className="relative">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[hsl(var(--background))] shadow-[0_0_50px_-10px_hsl(var(--primary)/0.4)] overflow-hidden bg-[hsl(var(--card))] relative">
+            <div className="relative group">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[hsl(var(--background))] shadow-[0_0_50px_-10px_hsl(var(--primary)/0.5)] overflow-hidden bg-zinc-950 relative">
                 <img
                   src="/felipe.jpg"
                   alt="Felipe Dutra"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top contrast-[1.12] brightness-[0.92] saturate-[0.85] transition-all duration-500 group-hover:scale-105 group-hover:contrast-100 group-hover:brightness-100 group-hover:saturate-100"
                 />
+                <div className="absolute inset-0 bg-radial-vignette pointer-events-none ring-1 ring-inset ring-black/20" />
               </div>
-              <span className="absolute bottom-2 right-2 w-5 h-5 bg-emerald-500 border-4 border-[hsl(var(--background))] rounded-full" title="Online Agora" />
+              <span className="absolute bottom-2 right-2 w-5 h-5 bg-emerald-500 border-4 border-[hsl(var(--background))] rounded-full z-20" title="Online Agora" />
             </div>
 
             <div className="space-y-2 pb-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[hsl(var(--primary)/0.3)] bg-[hsl(var(--primary)/0.08)] text-xs font-semibold text-[hsl(var(--primary))] backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5" /> Cartão Inteligente VIP
+              <div className="inline-flex items-center px-3.5 py-1 rounded-full border border-[hsl(var(--primary)/0.3)] bg-[hsl(var(--primary)/0.08)] text-xs font-semibold text-[hsl(var(--primary))] backdrop-blur-md">
+                Cartão Inteligente VIP
               </div>
               
               <h1 className="text-4xl md:text-6xl font-black tracking-tight text-[hsl(var(--foreground))]">
@@ -207,6 +260,103 @@ export default function Home() {
                   <ExternalLink className="w-5 h-5 text-[hsl(var(--muted-foreground))] group-hover:text-[hsl(var(--primary))] transition-colors" />
                 </div>
               </a>
+            ))}
+          </div>
+        </section>
+
+        {/* SEÇÃO MINI-LOJA / VITRINE EM CARROSSEL FLUIDO (ABAIXO DAS REDES SOCIAIS) */}
+        <section className="w-full space-y-6">
+          <div className="flex items-center justify-between border-b border-[hsl(var(--border))] pb-4">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--primary))] mb-1">
+                <ShoppingBag className="w-4 h-4" /> Soluções Exclusivas
+              </div>
+              <h2 className="text-3xl font-black tracking-tight text-[hsl(var(--foreground))]">
+                Produtos & Serviços em Destaque
+              </h2>
+            </div>
+
+            {/* Botões de Navegação do Carrossel */}
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => scrollCarousel('left')}
+                className="h-10 w-10 rounded-full border-[hsl(var(--border))] hover:border-[hsl(var(--primary))]"
+                title="Anterior"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => scrollCarousel('right')}
+                className="h-10 w-10 rounded-full border-[hsl(var(--border))] hover:border-[hsl(var(--primary))]"
+                title="Próximo"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Container do Carrossel com Scroll Horizontal Suave */}
+          <div
+            ref={carouselRef}
+            className="flex items-stretch gap-6 overflow-x-auto scrollbar-none pb-4 snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {storeProducts.map((prod, idx) => (
+              <div
+                key={idx}
+                className="min-w-[300px] md:min-w-[360px] max-w-[360px] snap-start group relative overflow-hidden rounded-3xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm transition-all duration-500 hover:scale-[1.02] hover:border-[hsl(var(--primary)/0.6)] flex flex-col justify-between shrink-0"
+              >
+                <div>
+                  {/* Banner do Produto */}
+                  <div className="w-full h-48 relative overflow-hidden bg-zinc-900">
+                    <img
+                      src={prod.image}
+                      alt={prod.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold bg-black/60 backdrop-blur-md text-[hsl(var(--primary))] border border-[hsl(var(--primary)/0.3)]">
+                      {prod.badge}
+                    </span>
+                  </div>
+
+                  {/* Informações do Produto */}
+                  <div className="p-6 space-y-3">
+                    <h3 className="font-bold text-lg text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))] transition-colors">
+                      {prod.title}
+                    </h3>
+                    <p className="text-2xl font-black text-[hsl(var(--primary))]">
+                      {prod.price}
+                    </p>
+                    <p className="text-xs text-[hsl(var(--muted-foreground))] leading-relaxed">
+                      {prod.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Botão de Compra Direta por Pix + WhatsApp */}
+                <div className="p-6 pt-0">
+                  <Button
+                    onClick={() => handleBuyProduct(idx, prod.title, prod.price)}
+                    className="w-full h-12 rounded-xl text-sm font-bold flex items-center justify-center gap-2 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:opacity-90 transition-all shadow-md"
+                  >
+                    {copiedProductPix === idx ? (
+                      <>
+                        <Check className="w-4 h-4 text-emerald-400" />
+                        <span>Pix Copiado! Abrindo WhatsApp...</span>
+                      </>
+                    ) : (
+                      <>
+                        <QrCode className="w-4 h-4" />
+                        <span>Comprar via Pix</span>
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </div>
             ))}
           </div>
         </section>
