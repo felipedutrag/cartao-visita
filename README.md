@@ -1,4 +1,4 @@
-# 🪪 Cartão de Visita Digital & Assistente de Voz com IA (Gemini Live)
+# 🪪 Digital Business Card & Realtime AI Voice Assistant (Gemini Live)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js 16" />
@@ -6,106 +6,59 @@
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/Google_Gemini_Live_Voice-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini Live" />
-  <img src="https://img.shields.io/badge/Pix_Nativo-32BCAD?style=for-the-badge&logo=pix&logoColor=white" alt="Pix Instantâneo" />
+  <img src="https://img.shields.io/badge/Instant_Pix_Payment-32BCAD?style=for-the-badge&logo=pix&logoColor=white" alt="Instant Pix" />
 </p>
 
 ---
 
-## 📌 Visão Geral
+## 📌 Overview
 
-O **Cartão de Visita Digital** é uma plataforma web interativa e imersiva projetada para networking profissional de alto impacto. Indo muito além de um linktree convencional, a aplicação combina identidade visual moderna, catálogo de serviços e produtos com conversão imediata via Pix/WhatsApp, e uma **Assistente Virtual de Voz em Tempo Real potencializada pelo Google Gemini Live**.
+**Digital Business Card** is an interactive, high-impact professional networking web application. Far beyond a static linktree, it combines modern branding, an instant service & consultation catalog, and an **interactive real-time voice assistant powered by Google Gemini Live**.
 
-Os visitantes podem conversar diretamente por voz com a IA do profissional, tirar dúvidas sobre sua stack técnica, serviços de consultoria e soluções de software em tempo real com áudio bidirecional.
-
----
-
-## ✨ Funcionalidades Principais
-
-- 🎙️ **Assistente de Voz Gemini Live em Tempo Real:**
-  - Integração com a API Gemini Multimodal Live via WebSockets/Audio streaming.
-  - Conversação bidirecional por voz com sintetização natural (`Kore`), respondendo sobre a experiência, projetos e disponibilidade do profissional.
-  - Histórico de transcrição e execução de tools/ações contextuais.
-- 💼 **Perfil Profissional & Portfólio Interativo:**
-  - Biografia dinâmica, links sociais (LinkedIn, GitHub, WhatsApp, E-mail).
-  - Vitrine de projetos e competências em arquitetura de software, automação e inteligência artificial.
-- ⚡ **Catálogo de Serviços com Conversão via Pix:**
-  - Carrossel responsivo de produtos e consultorias.
-  - Cópia com 1 clique da chave Pix e direcionamento automático com mensagem personalizada para o WhatsApp comercial.
-- 🌓 **Design Dark / Light Mode Elegante:**
-  - Alternância de temas fluida com `next-themes` e componentes estilizados via Radix UI e Tailwind CSS.
-- 📱 **100% Mobile-First & PWA-Ready:**
-  - Adaptado para visualização ultrarrápida via QR Code impresso no verso de cartões físicos ou cartões NFC.
+Visitors can talk directly through bidirectional audio streaming with the developer's voice AI (`Kore`), exploring technical background, past projects, consultation offerings, and direct booking details.
 
 ---
 
-## 🛠️ Stack Tecnológica
+## ✨ Key Features
 
-| Componente | Tecnologia |
+- 🎙️ **Gemini Live Multimodal Voice Assistant:** Bidirectional low-latency audio streaming via WebSockets with natural voice synthesis and contextual tool invocation.
+- 💼 **Interactive Portfolio & Profile:** Quick access to GitHub, LinkedIn, WhatsApp, and case studies in cloud architecture and AI engineering.
+- ⚡ **Service Catalog & Instant Checkout:** Carousel showcase for consulting packages with 1-click Pix copy and pre-formatted WhatsApp routing.
+- 🌓 **Dark / Light Theme:** Polished theme switcher using `next-themes`, Radix UI primitives, and Tailwind CSS.
+- 📱 **Mobile-First & NFC/QR Ready:** Instant load times optimized for physical NFC cards and printed QR codes.
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
 |---|---|
-| **Framework Web** | [Next.js 16](https://nextjs.org/) (App Router, Turbopack) |
-| **Biblioteca de UI** | [React 19](https://react.dev/) |
-| **Linguagem** | [TypeScript](https://www.typescriptlang.org/) |
-| **Estilização** | [Tailwind CSS](https://tailwindcss.com/) com `clsx` e `tailwind-merge` |
-| **Componentes Base** | [Radix UI](https://www.radix-ui.com/) + [Lucide Icons](https://lucide.dev/) |
-| **Inteligência Artificial** | [Google Gemini Live Voice API](https://ai.google.dev/) |
-| **Temas** | `next-themes` (Dark/Light Mode) |
+| **Framework** | Next.js 16 (App Router, Turbopack) |
+| **UI Library** | React 19 |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS + Radix UI |
+| **Artificial Intelligence** | Google Gemini Live Voice API |
 
 ---
 
-## 📁 Estrutura de Pastas
+## 🚀 Getting Started
 
 ```bash
-cartao-visita/
-├── public/                 # Favicons, logos e ativos estáticos
-├── scripts/                # Scripts utilitários
-├── src/
-│   ├── app/
-│   │   ├── api/gemini-live/  # Endpoints de configuração de sessão, tools e histórico de voz
-│   │   ├── modelos/          # Páginas de perfis profissionais (ex: /modelos/felipe-dutra)
-│   │   ├── layout.tsx        # Layout raiz e provedores de tema
-│   │   └── page.tsx          # Rota raiz com redirecionamento inteligente
-│   ├── components/           # Componentes modulares
-│   │   ├── ai-voice-assistant-card.tsx  # Card interativo de chamada com a IA por voz
-│   │   ├── mode-toggle.tsx              # Alternador de tema Dark/Light
-│   │   └── ui/                          # Botões, diálogos e cards Shadcn/Radix
-│   └── lib/                  # Configurações utilitárias (cn, áudio context)
-└── package.json
-```
-
----
-
-## 🚀 Como Executar Localmente
-
-### Pré-requisitos
-- Node.js `>= 18.0.0`
-- Chave de API do Google Gemini (`GEMINI_API_KEY`)
-
-### Passo a Passo
-
-```bash
-# Clone o repositório
+# Clone the repository
 git clone https://github.com/felipedutrag/cartao-visita.git
-
-# Entre no diretório
 cd cartao-visita
 
-# Instale as dependências
+# Install dependencies
 npm install
 
-# Configure as variáveis de ambiente (.env.local)
-# Crie o arquivo .env.local com:
-# GEMINI_API_KEY=sua_chave_do_gemini
-
-# Inicie o ambiente de desenvolvimento
+# Start development server
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no navegador para interagir com o cartão de visitas e testar a assistente de voz.
-
 ---
 
-## 👤 Autor
+## 👤 Author
 
-Desenvolvido por **Felipe Dutra**  
+Developed by **Felipe Dutra**  
 - **GitHub:** [@felipedutrag](https://github.com/felipedutrag)  
-- **E-mail:** [felipedutra@outlook.com](mailto:felipedutra@outlook.com)
+- **Email:** [felipedutra@outlook.com](mailto:felipedutra@outlook.com)
